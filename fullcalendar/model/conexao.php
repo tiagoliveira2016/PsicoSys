@@ -8,7 +8,7 @@ class conexao{
         $servername  =  "localhost" ; // Server em que esta o banco
         $username    =  "root"      ; // usuario do banco
         $password    =  ""          ; // senha do banco
-        $database    =  "newPsicosys"  ; // banco de dados
+        $database    =  "psicosys"  ; // banco de dados
         
         
         // Cria a conexao com o banco

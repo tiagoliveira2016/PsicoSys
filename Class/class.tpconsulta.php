@@ -31,7 +31,7 @@ class tpConsulta extends gn_tabela
                 "id"       => "CONS_DESC",
                 "label"    => "Descrição",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 6
             ),
             

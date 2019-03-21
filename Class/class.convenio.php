@@ -24,7 +24,7 @@ class convenio extends gn_tabela
                 "id"        => "Conv_Nome",
                 "label"     => "Convênio",
                 "orderBy"   => true, //?? Pendente
-                "required"  => true,
+                // "required"  => true,
                 "pesquisa"  => true,
                 "tamanho"   => 6,
             ),
@@ -53,7 +53,7 @@ class convenio extends gn_tabela
                 "id"       => "Conv_Cnpj",
                 "label"    => "CNPJ",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 6,
             ),
             "Conv_Email" => array(
@@ -63,7 +63,7 @@ class convenio extends gn_tabela
                 "id"       => "Conv_Email",
                 "label"    => "E-mail",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 6,
             ),
             "Conv_Endereco" => array(
@@ -100,7 +100,7 @@ class convenio extends gn_tabela
                 "id"       => "Conv_Fone",
                 "label"    => "Fone",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 3,
             ),
             "Conv_Contato_Cel" => array(

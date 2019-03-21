@@ -24,7 +24,7 @@ class prontuario extends gn_tabela
                 "id"        => "Pron_Profissional",
                 "label"     => "Profissional",
                 // "orderBy"   => true, //?? Pendente
-                "required"  => true,
+                // "required"  => true,
                 "pesquisa"  => true,
                 "readonly"  => true,
                 "tamanho"   => 5,

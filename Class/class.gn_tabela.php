@@ -96,16 +96,16 @@ class gn_tabela
                 $VALUES[0] = "'".date( 'Y-m-d')."'";
             }
 
-
-            if ($chave == "Cli_Cpf" || $chave == "Prof_Cnpj_Cpf"   ){
+            /*Retornar validação após entregar*/
+           /* if ($chave == "Cli_Cpf" || $chave == "Prof_Cnpj_Cpf"   ){
                 $cpf = $this->validaCPF($valor);
                 $procura = $valor;
 
-            }
-            elseif($chave == "Conv_Cnpj"){
+            }*/
+           /* elseif($chave == "Conv_Cnpj"){
                 $cpf = $this->validaCNPJ($valor);
                 $procura = $valor;                
-            }
+            }*/
             elseif($chave == 'usu_nome'){
                 $procura = $valor;                
             }
@@ -149,7 +149,7 @@ class gn_tabela
         $INSERT = implode(",",$INSERT);
         $VALUES = implode(",",$VALUES);
         
-
+        /*0
         //Valida se Ja existe um registro cadastrado com a mesma informação
         if($this->tabela == 'tab_clientes')
             $val = "SELECT CLI_CPF FROM tab_clientes WHERE CLI_CPF = '".$procura."'";
@@ -163,24 +163,24 @@ class gn_tabela
             $val = "SELECT CONS_DESC FROM tab_tpconsulta WHERE CONS_DESC = '".strtoupper($procura)."'";
         elseif($this->tabela == 'tab_salas')
             $val = "SELECT SALA_DESC FROM tab_salas WHERE SALA_DESC = '".strtoupper($procura)."'";
+*/
+        // // echo $this->tabela;
+        // if($this->tabela=='tab_prontuarios')
+        //         $a = '';
+        // else            
+        //     $a = $this->getone($val);
 
-        // echo $this->tabela;
-        if($this->tabela=='tab_prontuarios')
-                $a = '';
-        else            
-            $a = $this->getone($val);
+        // if(!empty($a))
+        //     echo("<script>alert('Impossível cadastrar registro duplicado !')</script>" );
 
-        if(!empty($a))
-            echo("<script>alert('Impossível cadastrar registro duplicado !')</script>" );
-
-        else{
+        // else{
             $SQL = "INSERT INTO `$this->tabela`($INSERT)  VALUES ( ".strtoupper($VALUES).");";
             // $this->ver($SQL);
             $this->executarNoBanco($SQL);
             echo"<script>alert('Cadastrado com sucesso!')</script>";
                 
                 
-            }        
+            // }        
             $cache = $this->montarCadastro();
             return $cache;
         } 
@@ -250,8 +250,9 @@ class gn_tabela
                 } 
                 if(isset($_REQUEST ['usuario_alt'])) {
                      $SQL_COLUNAS[] = "usuario_alt ='". $_SESSION['login']."'";
-                }  
-                if($coluna == 'Cli_Cpf' || $coluna == 'Prof_Cnpj_Cpf'){
+                } 
+                 //Retornar validações após entregar 
+                /*if($coluna == 'Cli_Cpf' || $coluna == 'Prof_Cnpj_Cpf'){
                     $resquest = (isset($_REQUEST['Cli_Cpf']) ? $_REQUEST['Cli_Cpf'] : $_REQUEST['Prof_Cnpj_Cpf']  );
                     $validaCpf = $this->validaCPF($resquest);
 
@@ -260,21 +261,21 @@ class gn_tabela
                     $resquest = (isset($_REQUEST['Conv_Cnpj']) ? $_REQUEST['Conv_Cnpj'] : ''  );
                     $validaCpf = $this->validaCNPJ($resquest);
 
-                }     
+                }*/     
             }
             
         }
-        if( isset($validaCpf) && $validaCpf  != 'false'){
+        /*if( isset($validaCpf) && $validaCpf  != 'false'){
            
            echo($this->tabela == 'tab_convenios' ? "<script>alert('CNPJ INVALIDO!')</script>" :  "<script>alert('CPF INVALIDO!')</script>");
         }
-        else{
+        else{*/
             // var_dump($SQL_COLUNAS);
             $SQL_COLUNAS = implode(', ', $SQL_COLUNAS);
             $SQL = "UPDATE $this->tabela SET $SQL_COLUNAS WHERE $this->chave = {$_REQUEST[$this->chave]};";
             $this->executarNoBanco($SQL);
             //var_dump($_SESSION['login']);
-        }
+        // }
             return $this->pesquisar();
     }
 
@@ -577,44 +578,45 @@ class gn_tabela
     function excluir()
     {
 
-        if($this->tabela == 'tab_clientes'){
-            if(isset($_REQUEST['chave']))
-                $SQL = "SELECT cli_id FROM tab_eventos WHERE cli_id =".$_REQUEST['chave'];    
-           /* $cli = $this->executarNoBanco($SQL);
-            if($cli->num_rows > 0)
-                echo "<script>alert('Cliente não pode ser excluido após agendamento de consulta. ')</script>";*/
-        }
-        if($this->tabela == 'tab_profissionais'){
-            if(isset($_REQUEST['chave']))
-                $SQL = "SELECT prof_id FROM tab_eventos WHERE prof_id =".$_REQUEST['chave'];    
-           /* var_dump($SQL);
-            $prof = $this->executarNoBanco($SQL);
-            if($prof->num_rows > 0)
-                echo "<script>alert('Profissional não pode ser excluido após agendamento de consulta. ')</script>";*/
-        }
-        //Verifica se o Status é diferente de Concluido
-        elseif($this->tabela == 'tab_eventos'){
-             if(isset($_REQUEST['chave']))
-                $SQL = "SELECT STATUS FROM tab_eventos WHERE id =".$_REQUEST['chave']." AND STATUS = 'C'";    
-           /* $ev = $this->executarNoBanco($SQL);
-            if($ev->num_rows > 0)
-                echo "<script>alert('Consultas efetuadas não podem ser excluidas. ')</script>";*/
+// /*        if($this->tabela == 'tab_clientes'){
+//             if(isset($_REQUEST['chave']))
+//                 $SQL = "SELECT cli_id FROM tab_eventos WHERE cli_id =".$_REQUEST['chave'];    
+//            /* $cli = $this->executarNoBanco($SQL);
+//             if($cli->num_rows > 0)
+//                 echo "<script>alert('Cliente não pode ser excluido após agendamento de consulta. ')</script>";*/
+//         }
+//         if($this->tabela == 'tab_profissionais'){
+//             if(isset($_REQUEST['chave']))
+//                 $SQL = "SELECT prof_id FROM tab_eventos WHERE prof_id =".$_REQUEST['chave'];    
+//             var_dump($SQL);
+//             $prof = $this->executarNoBanco($SQL);
+//             if($prof->num_rows > 0)
+//                 echo "<script>alert('Profissional não pode ser excluido após agendamento de consulta. ')</script>";
+//         }
+//         //Verifica se o Status é diferente de Concluido
+//         elseif($this->tabela == 'tab_eventos'){
+//              if(isset($_REQUEST['chave']))
+//                 $SQL = "SELECT STATUS FROM tab_eventos WHERE id =".$_REQUEST['chave']." AND STATUS = 'C'";    
+//            /* $ev = $this->executarNoBanco($SQL);
+//             if($ev->num_rows > 0)
+//                 echo "<script>alert('Consultas efetuadas não podem ser excluidas. ')</script>";*/
 
-        }
-        if(!empty($SQL)){
-            $aux = $this->executarNoBanco($SQL);
+//         }
+//         if(!empty($SQL)){
+//             $aux = $this->executarNoBanco($SQL);
 
-        if($aux->num_rows > 0){
-            echo "<script>alert('Exclusão não permitida, há movimentações! ')</script>";
+//         if($aux->num_rows > 0){
+//             echo "<script>alert('Exclusão não permitida, há movimentações! ')</script>";
             
-        }
+//         }
         
         
-        if($aux->num_rows == 0)
+//         if($aux->num_rows == 0)
             $SQL = "DELETE FROM {$this->tabela} WHERE $this->chave = $_REQUEST[chave] ; " ; 
+            // var_dump($SQL);
             $this->executarNoBanco($SQL);
             
-        }
+        // }
 
 
         return $this->pesquisar();
@@ -644,7 +646,7 @@ class gn_tabela
         $servername  =  "localhost"    ; // Server em que esta o banco
         $username    =  "root"         ; // usuario do banco
         $password    =  ""             ; // senha do banco
-        $database    =  "newpsicosys"  ; // banco de dados
+        $database    =  "psicosys"  ; // banco de dados
         
         
         // Cria a conexao com o banco
@@ -687,7 +689,7 @@ class gn_tabela
         $servername  =  "localhost"    ; // Server em que esta o banco
         $username    =  "root"         ; // usuario do banco
         $password    =  ""             ; // senha do banco
-        $database    =  "newpsicosys"  ; // banco de dados
+        $database    =  "psicosys"  ; // banco de dados
 
       
         $mysqli = new mysqli($servername,$username, $password,$database);
@@ -717,7 +719,7 @@ class gn_tabela
         $servername  =  "localhost"    ; // Server em que esta o banco
         $username    =  "root"         ; // usuario do banco
         $password    =  ""             ; // senha do banco
-        $database    =  "newpsicosys"  ; // banco de dados
+        $database    =  "psicosys"  ; // banco de dados
 
       
         $mysqli = new mysqli($servername,$username, $password,$database);

@@ -16,7 +16,7 @@ function tryLogin($usuario , $senha){
             $servername  =  "localhost" ; // Server em que esta o banco
             $username    =  "root"      ; // usuario do banco
             $password    =  ""          ; // senha do banco
-            $database    =  "Newpsicosys"  ; // banco de dados 
+            $database    =  "psicosys"  ; // banco de dados 
             
             // Cria a conexao com o banco
             $conn = new mysqli($servername, $username, $password, $database);
@@ -26,8 +26,8 @@ function tryLogin($usuario , $senha){
 
             $rows = mysqli_num_rows($resultado );
             
-            
-                // var_dump($rows);
+                        
+                var_dump($rows);
             if($rows > 0){
                 foreach ($resultado as $key => $value) {
                     $_SESSION['login'] = $value['USU_NOME'];

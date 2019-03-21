@@ -63,7 +63,7 @@ class cliente extends gn_tabela
                 "id"       => "Cli_Nome",
                 "label"    => "Nome",
                 "orderBy"  => true, //?? Pendente
-                "required" => true,
+                // "required" => true,
                 "pesquisa" => true,
                 "tamanho"  => 6,
             ),
@@ -74,7 +74,7 @@ class cliente extends gn_tabela
                 "id"       => "Cli_Cpf",
                 "label"    => "CPF",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 6,
                 // "onchange" => 'validarCPF()',
                 "maxlength" => 10,
@@ -90,7 +90,7 @@ class cliente extends gn_tabela
                 "callback" => "lista_callback_data",
                 "type"     => "date",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 3,
                 "onchange" => "calcYearOld(this, \"Cli_Idade\");",
             ),
@@ -121,7 +121,7 @@ class cliente extends gn_tabela
                 "id"       => "Cli_Tipo",
                 "label"    => "Classificação",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 3,
                 'options'=> array(
                     'Crianca'    => "Criança"     ,       
@@ -228,7 +228,7 @@ class cliente extends gn_tabela
                 "id"       => "Cli_Contato_Cel1",
                 "label"    => "Contato Cel(1) ",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 3,
             ),
             "Cli_Cel1" => array(
@@ -238,7 +238,7 @@ class cliente extends gn_tabela
                 "id"       => "Cli_Cel1",
                 "label"    => "Celular(1)",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 3,
             ),
             "Cli_Contato_Cel2" => array(

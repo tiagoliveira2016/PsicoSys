@@ -25,7 +25,7 @@ class profissional extends gn_tabela
                 "label"    => "Nome",
                 "orderBy"  => true, //?? Pendente
                 "type"     => "text",
-                "required" => true,
+                // "required" => true,
                 "pesquisa" => true,
                 "tamanho"  => 6,
             ),
@@ -57,7 +57,7 @@ class profissional extends gn_tabela
                 "label"    => "Especialidade",
                 "type"     => "text",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 6,
             ),
             "Prof_Cnpj_Cpf" => array(
@@ -67,7 +67,7 @@ class profissional extends gn_tabela
                 "id"       => "Prof_Cnpj_Cpf",
                 "label"    => "CPF",
                 "type"     => "text",
-                "required" => true,
+                // "required" => true,
                 "pesquisa" => false,
                 "tamanho"  => 6,
             ),
@@ -97,7 +97,7 @@ class profissional extends gn_tabela
                 "callback" => "lista_callback_data",
                 "type"     => "date",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 3,
                 "onchange" => "calcYearOld(this, \"Prof_Idade\");",
             ),
@@ -128,7 +128,7 @@ class profissional extends gn_tabela
                 "label"    => "Endereço",
                 "type"     => "text",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 3,
             ),
             "Prof_Cep" => array(
@@ -169,7 +169,7 @@ class profissional extends gn_tabela
                 "label"    => "Celular(1)",
                 "type"     => "text",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 3,
             ),
             "Prof_Cel2" => array(
@@ -205,7 +205,7 @@ class profissional extends gn_tabela
                 "label"    => "Conselho",
                 "type"     => "text",
                 "pesquisa" => false,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 3,
             ),
             "Prof_Email" => array(

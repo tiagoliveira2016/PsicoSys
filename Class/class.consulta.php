@@ -32,7 +32,7 @@ class consulta extends gn_tabela
                 "label"    => "Status",
                "callback"      => "lista_callback_check",
                 "pesquisa" => true,
-                "required" => false,
+                // "required" => false,
                 "tamanho"  => 6
             ),
             "title" => array(
@@ -42,7 +42,7 @@ class consulta extends gn_tabela
                 "id"       => "title",
                 "label"    => "Cliente",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 6
             ),
             /* "prof_id" => array(
@@ -69,7 +69,7 @@ class consulta extends gn_tabela
                 "label"    => "Data Consulta",
                 "callback" => "lista_callback_data",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 6
             ),
              "end" => array(
@@ -80,7 +80,7 @@ class consulta extends gn_tabela
                 "label"    => "Fim consulta",
                 "callback" => "lista_callback_data",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 6
             ),
            "prof_id" => array(
@@ -90,7 +90,7 @@ class consulta extends gn_tabela
                 "id"       => "prof_id",
                 "label"    => "Profissional",
                 "pesquisa" => false,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 6
             ),
 

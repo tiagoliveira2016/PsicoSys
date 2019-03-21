@@ -31,7 +31,7 @@ class sala extends gn_tabela
                 "id"       => "sala_desc",
                 "label"    => "Descrição",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 12,
             ),
             "criado_em" => array(

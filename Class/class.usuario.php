@@ -31,7 +31,7 @@ class usuario extends gn_tabela
                 "id"       => "usu_nome",
                 "label"    => "Usuário",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 6
             ),
             "usu_Status" => array(
@@ -70,7 +70,7 @@ class usuario extends gn_tabela
                 "id"       => "Usu_Tipo",
                 "label"    => "Tipo",
                 "pesquisa" => true,
-                "required" => true,
+                // "required" => true,
                 "tamanho"  => 6,
                 'options'=> array(
                     'Administrativo' => "Adminstrativo",       
